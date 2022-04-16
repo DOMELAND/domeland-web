@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import VelorenModule from './veloren/veloren.module';
 
 let database_path = process.env.DOMELAND_DATABASE;
 
@@ -18,6 +19,7 @@ if (!database_path) {
       autoLoadEntities: true,
       synchronize: true,
     }),
+    VelorenModule
   ],
   controllers: [AppController],
   providers: [AppService],
